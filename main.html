@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rin Bot - Your Smart Study Assistant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #ffd166;
+        }
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        nav {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        nav a {
+            color: #4a6fa5;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        nav a:hover {
+            background: #4a6fa5;
+            color: white;
+        }
+        section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        h2 {
+            color: #4a6fa5;
+            border-bottom: 3px solid #ffd166;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .feature-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #4a6fa5;
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .feature-card h3 {
+            color: #4a6fa5;
+            margin-bottom: 10px;
+        }
+        .price-box {
+            text-align: center;
+            background: linear-gradient(135deg, #4a6fa5, #6a8cc7);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .price {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #ffd166;
+            margin: 15px 0;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #ffd166;
+            color: #333;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .cta-button:hover {
+            background: #ffc145;
+            transform: scale(1.05);
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        .legal-links {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .contact {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .language-switch {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .lang-btn {
+            background: #e9ecef;
+            border: none;
+            padding: 8px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .lang-btn.active {
+            background: #4a6fa5;
+            color: white;
+        }
+        .arabic-text {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .features { grid-template-columns: 1fr; }
+            nav { flex-direction: column; align-items: center; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switch">
+        <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
+        <button class="lang-btn" onclick="switchLanguage('ar')">العربية</button>
+    </div>
+
+    <header>
+        <h1 class="english-text">Rin Bot 🤖</h1>
+        <h1 class="arabic-text">بوت رين 🤖</h1>
+        
+        <p class="tagline english-text">Your Smart Study Assistant - Faster, Smarter, Always With You</p>
+        <p class="tagline arabic-text">مساعدك الذكي للإجابات الدراسية - أسرع، أذكى، دائمًا معك</p>
+        
+        <p style="margin-top:15px;font-size:1.1rem;">
+            <strong class="english-text">Product:</strong>
+            <strong class="arabic-text">المنتج:</strong>
+            <span class="english-text">VIP activation code for a Telegram bot that provides instant answers to study questions</span>
+            <span class="arabic-text">كود تفعيل VIP لبوت تليجرام يوفر إجابات فورية للأسئلة الدراسية</span>
+        </p>
+    </header>
+
+    <nav>
+        <a href="#about" class="english-text">About Bot</a>
+        <a href="#about" class="arabic-text">عن البوت</a>
+        
+        <a href="#features" class="english-text">Features</a>
+        <a href="#features" class="arabic-text">المميزات</a>
+        
+        <a href="#pricing" class="english-text">Pricing</a>
+        <a href="#pricing" class="arabic-text">الأسعار</a>
+        
+        <a href="#tutorial" class="english-text">How to Use</a>
+        <a href="#tutorial" class="arabic-text">كيفية الاستخدام</a>
+        
+        <a href="#contact" class="english-text">Contact</a>
+        <a href="#contact" class="arabic-text">التواصل</a>
+        
+        <a href="terms.html" class="english-text">Terms & Conditions</a>
+        <a href="terms.html" class="arabic-text">الشروط والأحكام</a>
+        
+        <a href="privacy.html" class="english-text">Privacy Policy</a>
+        <a href="privacy.html" class="arabic-text">سياسة الخصوصية</a>
+        
+        <a href="refund.html" class="english-text">Refund Policy</a>
+        <a href="refund.html" class="arabic-text">سياسة الاسترجاع</a>
+    </nav>
+
+    <section id="about">
+        <h2 class="english-text">✨ What is Rin Bot?</h2>
+        <h2 class="arabic-text">✨ ما هو Rin Bot؟</h2>
+        
+        <p class="english-text">
+            Rin is a smart bot on Telegram specifically designed to help students get answers to their study questions quickly and accurately. Just send your question (full or even half) and Rin will provide you with the appropriate answer within seconds.
+        </p>
+        <p class="arabic-text">
+            Rin هو بوت ذكي على تطبيق تليجرام صمم خصيصًا لمساعدة الطلاب في الحصول على إجابات لأسئلتهم الدراسية بسرعة ودقة. فقط أرسل سؤالك (كاملًا أو حتى نصفه) وسيقدم لك Rin الإجابة المناسبة خلال ثوانٍ.
+        </p>
+        
+        <div style="margin:25px 0; padding:20px; background:#f0f7ff; border-radius:10px; border-left:5px solid #4a6fa5;">
+            <h3 class="english-text">🎯 Product Description:</h3>
+            <h3 class="arabic-text">🎯 وصف المنتج المبيع:</h3>
+            
+            <p class="english-text">We sell a <strong>VIP activation code</strong> that grants the user:</p>
+            <p class="arabic-text">نبيع <strong>كود تفعيل VIP</strong> يمنح المستخدم:</p>
+            
+            <ul style="margin-left:20px; margin-top:10px;">
+                <li class="english-text">Full access with permanent activation code</li>
+                <li class="arabic-text">وصول كامل وكود تفعيل دائم</li>
+                
+                <li class="english-text">Priority in answers and technical support</li>
+                <li class="arabic-text">أولوية في الإجابات والدعم الفني</li>
+                
+                <li class="english-text">Unlimited number of questions</li>
+                <li class="arabic-text">عدد غير محدود من الأسئلة</li>
+                
+                <li class="english-text">Queue-free experience</li>
+                <li class="arabic-text">تجربة خالية من الانتظار</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="features">
+        <h2 class="english-text">🚀 VIP Subscription Features</h2>
+        <h2 class="arabic-text">🚀 مميزات الاشتراك VIP</h2>
+        
+        <div class="features">
+            <div class="feature-card">
+                <h3 class="english-text">⚡ Ultimate Priority</h3>
+                <h3 class="arabic-text">⚡ أولوية فائقة</h3>
+                
+                <p class="english-text">Your questions are answered first - skip the waiting queue completely.</p>
+                <p class="arabic-text">أسئلتك تصل أولاً وتُجاب فورًا، تخطي طابور الانتظار بالكامل.</p>
+            </div>
+            <div class="feature-card">
+                <h3 class="english-text">∞ Unlimited Access</h3>
+                <h3 class="arabic-text">∞ عدد غير محدود</h3>
+                
+                <p class="english-text">Ask as much as you want without restrictions - for all subjects and curricula.</p>
+                <p class="arabic-text">اسأل كما تشاء بدون قيود - لجميع المواد والمناهج الدراسية.</p>
+            </div>
+            <div class="feature-card">
+                <h3 class="english-text">🛡️ Dedicated Support</h3>
+                <h3 class="arabic-text">🛡️ دعم مخصص</h3>
+                
+                <p class="english-text">Fast and direct technical support for VIP members only.</p>
+                <p class="arabic-text">دعم فني سريع ومباشر لأعضاء VIP فقط.</p>
+            </div>
+            <div class="feature-card">
+                <h3 class="english-text">🔓 Lifetime Activation</h3>
+                <h3 class="arabic-text">🔓 تفعيل دائم</h3>
+                
+                <p class="english-text">One activation code works for life - no renewals or subscriptions.</p>
+                <p class="arabic-text">كود تفعيل واحد يعمل مدى الحياة - لا تجديدات ولا اشتراكات دورية.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <h2 class="english-text">💰 Pricing Packages</h2>
+        <h2 class="arabic-text">💰 باقات الأسعار</h2>
+        
+        <p style="text-align:center; margin-bottom:25px;">
+            <span class="english-text">Choose the package that suits you and enjoy the smart study experience</span>
+            <span class="arabic-text">اختر الباقة المناسبة لك واستمتع بتجربة الدراسة الذكية</span>
+        </p>
+        
+        <div class="price-box">
+            <h3 class="english-text">Full VIP Package</h3>
+            <h3 class="arabic-text">الباقة الكاملة VIP</h3>
+            
+            <p style="opacity:0.9;">
+                <span class="english-text">Lifetime activation with all features</span>
+                <span class="arabic-text">تفعيل دائم بكل المميزات</span>
+            </p>
+            
+            <div class="price">$9.99</div>
+            
+            <p>
+                <span class="english-text">
+                    🔹 Full priority in answers<br>
+                    🔹 Unlimited number of questions<br>
+                    🔹 Dedicated technical support<br>
+                    🔹 Lifetime activation
+                </span>
+                <span class="arabic-text">
+                    🔹 أولوية كاملة في الإجابات<br>
+                    🔹 عدد غير محدود من الأسئلة<br>
+                    🔹 دعم فني مخصص<br>
+                    🔹 تفعيل مدى الحياة
+                </span>
+            </p>
+            
+            <a href="https://buy.stripe.com/test_00g..." class="cta-button">
+                <span class="english-text">Buy Now</span>
+                <span class="arabic-text">اشتري الآن</span>
+            </a>
+            
+            <p style="margin-top:15px; font-size:0.9rem; opacity:0.8;">
+                <span class="english-text">Activation code will be sent immediately after payment</span>
+                <span class="arabic-text">سيتم إرسال كود التفعيل فورًا بعد الدفع</span>
+            </p>
+        </div>
+        
+        <div style="text-align:center; margin-top:30px;">
+            <h3 class="english-text">📋 Direct Pricing Page:</h3>
+            <h3 class="arabic-text">📋 صفحة الأسعار مباشرة:</h3>
+            
+            <p><a href="#pricing" style="color:#4a6fa5; font-weight:bold;">https://rainbot.carrd.co/#pricing</a></p>
+            
+            <p style="margin-top:10px; color:#666;">
+                <span class="english-text">(This section clearly shows the package, price, and features offered)</span>
+                <span class="arabic-text">(هذا القسم يعرض بوضوح الباقة والسعر والمميزات المقدمة)</span>
+            </p>
+        </div>
+    </section>
+
+    <section id="tutorial">
+        <h2 class="english-text">🎬 How to Use</h2>
+        <h2 class="arabic-text">🎬 كيفية الاستخدام</h2>
+        
+        <p class="english-text">Watch this short video to learn how Rin Bot works:</p>
+        <p class="arabic-text">شاهد هذا الفيديو القصير لتعرف كيف يعمل Rin Bot:</p>
+        
+        <div style="text-align:center; margin:20px 0;">
+            <a href="https://t.me/Rin_Updates/32" target="_blank" style="display:inline-block; background:#4a6fa5; color:white; padding:15px 30px; border-radius:10px; text-decoration:none; font-weight:bold;">
+                <span class="english-text">🎥 Watch Tutorial on Telegram</span>
+                <span class="arabic-text">🎥 شاهد شرح التشغيل على تليجرام</span>
+            </a>
+        </div>
+        
+        <h3 style="margin-top:30px;">
+            <span class="english-text">📝 Simple Steps:</span>
+            <span class="arabic-text">📝 خطوات بسيطة:</span>
+        </h3>
+        
+        <ol style="margin-left:20px; margin-top:10px;">
+            <li class="english-text">Go to <strong>@Rin_Bot</strong> on Telegram</li>
+            <li class="arabic-text">ادخل إلى <strong>@Rin_Bot</strong> على تليجرام</li>
+            
+            <li class="english-text">Send your study question (full or part)</li>
+            <li class="arabic-text">أرسل سؤالك الدراسي (كاملًا أو جزء منه)</li>
+            
+            <li class="english-text">Wait a few seconds to get the answer</li>
+            <li class="arabic-text">انتظر بضع ثوانٍ للحصول على الإجابة</li>
+            
+            <li class="english-text">To get VIP features, purchase activation code from this page</li>
+            <li class="arabic-text">للحصول على مزايا VIP، اشتر كود التفعيل من هذه الصفحة</li>
+        </ol>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="english-text">📞 Contact & Support</h2>
+        <h2 class="arabic-text">📞 التواصل والدعم</h2>
+        
+        <p class="english-text">For any technical inquiries or assistance with the purchase process:</p>
+        <p class="arabic-text">لأي استفسارات تقنية أو مساعدة في عملية الشراء:</p>
+        
+        <p><strong class="english-text">Email:</strong><strong class="arabic-text">البريد الإلكتروني:</strong> bassam.yasser162@gmail.com</p>
+        
+        <p><strong class="english-text">Updates Channel:</strong><strong class="arabic-text">قناة التحديثات:</strong> 
+            <a href="https://t.me/Rin_Updates" target="_blank">t.me/Rin_Updates</a>
+        </p>
+        
+        <p><strong class="english-text">Support via Telegram:</strong><strong class="arabic-text">الدعم عبر تليجرام:</strong> 
+            <a href="https://t.me/Rin_Bot" target="_blank">@Rin_Bot</a>
+        </p>
+        
+        <p style="margin-top:20px; color:#4a6fa5; font-weight:bold;">
+            <span class="english-text">⏰ Response Time: Within 24 hours</span>
+            <span class="arabic-text">⏰ وقت الاستجابة: خلال 24 ساعة</span>
+        </p>
+    </section>
+
+    <footer>
+        <div class="legal-links">
+            <a href="terms.html" style="color:#666;">
+                <span class="english-text">Terms & Conditions</span>
+                <span class="arabic-text">الشروط والأحكام</span>
+            </a> | 
+            <a href="privacy.html" style="color:#666;">
+                <span class="english-text">Privacy Policy</span>
+                <span class="arabic-text">سياسة الخصوصية</span>
+            </a> | 
+            <a href="refund.html" style="color:#666;">
+                <span class="english-text">Refund Policy</span>
+                <span class="arabic-text">سياسة الاسترجاع</span>
+            </a>
+        </div>
+        
+        <p><strong class="english-text">Brand Name:</strong><strong class="arabic-text">العلامة التجارية:</strong> 
+            <span class="english-text">"Rin" - Smart Study Assistant</span>
+            <span class="arabic-text">"Rin" - مساعد الدراسة الذكي</span>
+        </p>
+        
+        <p style="margin-top:15px;">
+            <span class="english-text">© 2024 Rin Bot. All rights reserved.</span>
+            <span class="arabic-text">© 2024 Rin Bot. جميع الحقوق محفوظة.</span>
+        </p>
+        
+        <p style="margin-top:10px; font-size:0.9rem; color:#888;">
+            <span class="english-text">Made with love by Rin to make studying easier for students 💙</span>
+            <span class="arabic-text">صنع بحب من Rin لتسهيل الدراسة على الطلاب 💙</span>
+        </p>
+        
+        <p style="margin-top:20px; color:#4a6fa5; font-size:0.9rem;">
+            <span class="english-text">This page is for Paddle verification as Merchant of Record to sell digital activation codes via Telegram</span>
+            <span class="arabic-text">هذه الصفحة خاصة بعملية التحقق من Paddle كـ Merchant of Record لبيع كود تفعيل رقمي عبر تليجرام</span>
+        </p>
+    </footer>
+
+    <script>
+        // Set initial language to English
+        document.addEventListener('DOMContentLoaded', function() {
+            switchLanguage('en');
+        });
+
+        // Language switching function
+        function switchLanguage(lang) {
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            if (lang === 'en') {
+                document.querySelector('.lang-btn[onclick="switchLanguage(\'en\')"]').classList.add('active');
+                document.documentElement.lang = 'en';
+                document.documentElement.dir = 'ltr';
+            } else {
+                document.querySelector('.lang-btn[onclick="switchLanguage(\'ar\')"]').classList.add('active');
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+            }
+            
+            // Show/hide language texts
+            const englishElements = document.querySelectorAll('.english-text');
+            const arabicElements = document.querySelectorAll('.arabic-text');
+            
+            if (lang === 'en') {
+                englishElements.forEach(el => el.style.display = 'block');
+                arabicElements.forEach(el => el.style.display = 'none');
+            } else {
+                englishElements.forEach(el => el.style.display = 'none');
+                arabicElements.forEach(el => el.style.display = 'block');
+            }
+            
+            // Adjust list alignment
+            const lists = document.querySelectorAll('ul, ol');
+            lists.forEach(list => {
+                if (lang === 'en') {
+                    list.style.marginLeft = '20px';
+                    list.style.marginRight = '0';
+                } else {
+                    list.style.marginRight = '20px';
+                    list.style.marginLeft = '0';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
